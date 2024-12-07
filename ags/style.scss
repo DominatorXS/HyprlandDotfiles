@@ -1,0 +1,281 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$theme_fg_color: "@theme_fg_color";
+$theme_bg_color: "@theme_bg_color";
+
+@use "sass:color";
+@use "sass:string";
+// $bg: "@theme_bg_color";
+// $fg: "@theme_fg_color";
+$accent: #eb6f92;
+$accent1: #d7827e;
+$radius: 0px;
+$bg0_color: #504945;
+$bg1_color: #32344a;
+$red:#cc241d;
+@function gtkalpha($c, $a) {
+    @return string.unquote("alpha(#{$c},#{$a})");
+}
+
+window.Bar {
+    border: none;
+    box-shadow: none;
+    // background-color: #{$theme_bg_color};
+    // color: #{$theme_fg_color};
+    font-size: 1.1em;
+    border-radius: $radius;
+    font-weight: bold;
+    margin: 6px;
+    box.Bar{
+        background-color: #{$theme_bg_color};
+        margin: 0.8rem;
+        border-radius: $radius;
+        box-shadow: 2px 2px 4px black;
+    }
+    button {
+        all: unset;
+        background-color: transparent;
+
+        &:hover label {
+            background-color: #{$theme_bg_color};
+            border-color: color.adjust($accent, $alpha: -0.8);
+        }
+
+        &:active label {
+            background-color: #{$theme_bg_color};
+        }
+    }
+
+    label {
+        transition: 200ms;
+        padding: 0 8px;
+        margin: 2px;
+        border-radius: $radius;
+        border: 1pt solid transparent;
+    }
+
+    .Workspaces .focused label {
+        color: #{$theme_bg_color};
+        // border-color: $accent;
+        background-color: #{$accent};
+    }
+
+    .FocusedClient {
+        color: $accent;
+    }
+
+    .Media .Cover {
+        min-height: 1.2em;
+        min-width: 1.2em;
+        border-radius: $radius;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .Battery label {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .CustomLauncher{
+        background-color: $accent1;
+        font-size: 500px;
+    }
+    .AudioSlider {
+        * {
+            all: unset;
+        }
+
+        icon {
+            margin-right: 1em;
+        }
+
+        & {
+            margin: 0 1em;
+        }
+
+        trough {
+            background-color: #{$theme_fg_color};
+            border-radius: $radius;
+        }
+
+        highlight {
+            background-color: $accent;
+            min-height: .8em;
+            border-radius: $radius;
+        }
+
+        slider {
+            background-color: #{$theme_fg_color};
+            border-radius: $radius;
+            min-height: 1em;
+            min-width: 0.9em;
+            margin: -.2em;
+        }
+    }
+}
+
+window.PowerMenu {
+    // background: #{$theme_bg_color};
+    // color: #{$theme_fg_color};
+    // margin: 10px;
+    // font-weight: bold;
+    // border-radius: 12px;
+    box.Shadow{
+        margin: 12px;
+        background-color: #{$theme_bg_color};
+        box-shadow: 2px 2px 4px black;
+        border-radius: $radius;
+    }
+    button {
+        background-color: #{$theme_bg_color};
+        border-radius: $radius;
+        padding: 1em;
+        margin: 0.8em;
+        &:focus{
+            background-color: $accent;
+            // border-color: $bg0_color;
+        }
+        &:hover{
+            background-color: $accent1;
+            border-color: $bg0_color;
+        }
+    }
+}
+
+
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+
+window#launcher {
+    all: unset;
+    button.AppButton{
+        border-radius: $radius;
+        background-color: #{$theme_bg_color};
+        // border: solid 1px;
+        // &:focus{
+        //     border-color: #{$theme_bg_color};
+        // }
+
+    }
+    box.Applauncher {
+        background-color: $bg-color;
+        border-radius: $radius;
+        padding: 0.8rem;
+        margin: 1rem;
+        box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
+
+        entry {
+            margin-bottom: .8rem;
+            border-radius: $radius;
+        }
+
+        button {
+            min-width: 0;
+            min-height: 0;
+            padding: .5rem;
+
+            icon {
+                font-size: 3em;
+                margin-right: .3rem;
+            }
+
+            label.name {
+                font-weight: bold;
+                font-size: 1.1em
+            }
+
+            label.description {
+                color: gtkalpha($fg-color, .8);
+            }
+        }
+
+        box.not-found {
+            padding: 1rem;
+
+            icon {
+                font-size: 6em;
+                color: gtkalpha($fg-color, .7);
+            }
+
+            label {
+                color: gtkalpha($fg-color, .9);
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+window {
+    all: unset;
+}
+
+window.notifPanel{
+    // background: #{$theme_bg_color};
+    // color: #{$theme_fg_color};
+    // margin: 10px;
+    // font-weight: bold;
+    // border-radius: 12px;
+    // padding: 10em;
+    // box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
+    box.mainNotifBox{
+        background: #{$theme_bg_color};
+        margin: 12px;
+        // border: solid 2px #{$theme_fg_color};
+        border-radius: $radius;
+        padding: 0em;
+        box-shadow: 2px 2px 6px black;
+    }
+    // slider {
+    //         background-color: #{$theme_fg_color};
+    //         border-radius: $radius;
+    //         min-height: 1em;
+    //         min-width: 0.9em;
+    //         margin: -.2em;
+    //     }
+
+    scale {
+        padding: 0;
+        margin: .4rem 0;
+
+        trough {
+            min-height: 8px;
+        }
+
+        highlight {
+            background-color: $fg-color;
+        }
+
+        slider {
+            all: unset;
+        }
+    }
+    .Media .Cover {
+        min-height: 100px;
+        min-width: 50px;
+        border-radius: $radius;
+        background-position: center;
+        background-size: 100px;
+        background-repeat: no-repeat;
+    }
+
+    box.musicBox{
+        // background-color: $bg0_color;
+        border-radius: $radius;
+        padding: 1em;
+        margin: 1em;
+    }
+    button {
+        background-color: #{$theme_bg_color};
+        border-radius: 12px;
+        padding: 1em;
+        margin: 0.8em;
+        // &:focus{
+        //     background-color: $accent;
+        //     // border-color: $bg0_color;
+        // }
+        // &:hover{
+        //     background-color: $accent1;
+        //     border-color: $bg0_color;
+        // }
+    }
+}
