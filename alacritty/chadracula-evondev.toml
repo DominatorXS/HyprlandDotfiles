@@ -1,0 +1,28 @@
+
+# Default colors
+[colors.primary]
+background = '#141423'
+# soft contrast background = = '#32302f'
+foreground = '#F8F8F2'
+
+# Normal colors
+[colors.normal]
+black   = '#19192c'
+red     = '#ff5555'
+green   = '#50fa7b'
+yellow  = '#f1fa8c'
+blue    = '#2cccff'
+magenta = '#ff6bcb'
+cyan    = '#2cccff'
+white   = '#F8F8F2'
+
+# Bright colors
+[colors.bright]
+black   = '#141423'
+red     = '#ff5555'
+green   = '#50fa7b'
+yellow  = '#f2fa95'
+blue    = '#05c3ff'
+magenta = '#ff6bcb'
+cyan    = '#2cccff'
+white   = '#f8f8f2'
